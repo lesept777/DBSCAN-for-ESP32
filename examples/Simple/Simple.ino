@@ -33,7 +33,7 @@ void setup() {
       v.push_back(x);
       x = 2.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
-    } else if (r > 33) { // first cluster around 5,5,5
+    } else if (r > 33) { // second cluster around 5,5,5
       ++n2;
       x = 4.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
@@ -41,7 +41,7 @@ void setup() {
       v.push_back(x);
       x = 4.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
-    } else { // second cluster around 7,7,7
+    } else { // third cluster around 7,7,7
       ++n3;
       x = 6.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
