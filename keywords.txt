@@ -15,7 +15,9 @@ dbscan	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
+init	KEYWORD2
 displayStats	KEYWORD2
+predict	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
