@@ -1,9 +1,9 @@
 /*
- * This sketch shows a basic example of DBSCAN classification
- * It creates a dataset made of 100 points with x,y coordinates, grouped in 3 clusters around 3
- * centroid points, plus a few points located far away (labelled as noise)
- * The sketch compares the results of 4 different distance types
- */
+   This sketch shows a basic example of DBSCAN classification
+   It creates a dataset made of 100 points with x,y coordinates, grouped in 3 clusters around 3
+   centroid points, plus a few points located far away (labelled as noise)
+   The sketch compares the results of 4 different distance types
+*/
 
 
 #include "DBSCAN.h"
@@ -33,7 +33,7 @@ void setup() {
       v.push_back(x);
       x = 2.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
-    } else if (r > 33) { // second cluster around 5,5,5
+    } else if (r > 33) { // first cluster around 5,5,5
       ++n2;
       x = 4.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
@@ -41,7 +41,7 @@ void setup() {
       v.push_back(x);
       x = 4.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
-    } else { // third cluster around 7,7,7
+    } else { // second cluster around 7,7,7
       ++n3;
       x = 6.5 + random(N + 1) * 1.0f / N;
       v.push_back(x);
@@ -62,9 +62,26 @@ void setup() {
   Serial.println("\nEUCLIDIAN");
   dbscan DB(.6, 4, EUCLIDIAN);
   DB.init(V);
-//  Serial.println("\nMINKOVSKI");
-//  dbscan DB2(.2, 4, MINKOVSKI, .5);
-//  DB2.init(V);
+
+  // Prediction
+  std::vector<float> v;
+  float myV[] = {3, 3, 3};
+  v.assign (myV, myV + 3);
+  uint16_t n = DB.predict(v);
+  Serial.printf("[3,3,3] in cluster %d\n", n);
+  float myV2[] = {5, 5, 5};
+  v.assign (myV2, myV2 + 3);
+  n = DB.predict(v);
+  Serial.printf("[5,5,5] in cluster %d\n", n);
+  float myV3[] = {3, 5, 7};
+  v.assign (myV3, myV3 + 3);
+  n = DB.predict(v);
+  if (n == 65535) Serial.println("[3,5,7] in noise");
+  else Serial.printf("[3,5,7] in cluster %d\n", n);
+
+  //  Serial.println("\nMINKOVSKI");
+  //  dbscan DB2(.2, 4, MINKOVSKI, .5);
+  //  DB2.init(V);
   Serial.println("\nMANHATTAN");
   dbscan DB3(.75, 4, MANHATTAN);
   DB3.init(V);
