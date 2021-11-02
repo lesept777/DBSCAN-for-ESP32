@@ -24,9 +24,11 @@ See the example on how to create a dataset. Basiccally, you need to declare the 
 std::vector<float> v;
 float myV[] = {3, 3, 3};
 v.assign (myV, myV + 3);
-dataset.push_back(v);```
+dataset.push_back(v);
+```
 Or more simply, if you have the data values
-```dataset.push_back([3,3,3]);
+```
+dataset.push_back([3,3,3]);
 ```
 
 when the dataset is ready, just call the `init` method:
