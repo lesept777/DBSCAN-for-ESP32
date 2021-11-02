@@ -1,2 +1,6 @@
-# DBSCAN-for-ESP32
-DBSCAN for ESP32
+# DBSCAN classification for ESP32
+This library is designed to be used with the Arduino IDE.
+
+## Dependencies
+* no dependency
+

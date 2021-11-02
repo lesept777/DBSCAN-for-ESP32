@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map For MLP
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DB		KEYWORD1
+DATASET	KEYWORD1
+dataset	KEYWORD1
+dbscan	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+displayStats	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+EUCLIDIAN	LITERAL1    
+MINKOVSKI	LITERAL1    
+MANHATTAN	LITERAL1
+CHEBYCHEV	LITERAL1
+CANBERRA	LITERAL1
