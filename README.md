@@ -50,7 +50,7 @@ The method `displayStats` provides usuful information about the clusters:
 
 > Cluster 0 : 70 points
 >
-> 	Centroid: 0.003065 0.004174 2.999999 
+> 	Centroid: 0.003065 0.004174 2.999999 <br>
 > 	Tightness = 0.105
 > Cluster 1 : 56 points
 > 	Centroid: 0.254542 0.028865 1.999999 
