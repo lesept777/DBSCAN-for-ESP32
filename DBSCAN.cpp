@@ -229,12 +229,9 @@ uint16_t dbscan::predict (std::vector<float> const &vector)
 {
 	uint16_t number = 65535;
 	for (uint16_t i = 0; i < _nData; ++i)
-		if (distance(vector, _dataset[i]) < _epsilon) {
+		if (distance(vector, _dataset[i]) < _epsilon)
 			for (uint16_t j = 0; j < _nClusters; ++j)
 				for (uint16_t k = 0; k < _clusters[j + 1].size(); ++k)
-					if (_clusters[j + 1][k] == i) {
-						return j;
-					}
-		}
+					if (_clusters[j + 1][k] == i) return j;
 	return number;
 }
