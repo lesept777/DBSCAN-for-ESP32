@@ -187,7 +187,7 @@ void loop() {
     calc = true;
   }
 
-  const int threshold = 90;
+  const int threshold = 70;
   // Touch GPIO 15 to change the size of the dataset
   const int touchPin15 = 15;
   int T15 = touchRead(touchPin15);
@@ -196,6 +196,12 @@ void loop() {
     if (nData > 300) nData = 50;
     calc = true;
   }
+
+  // Touch GPIO 27 to run the same case again
+  const int touchPin27 = 27;
+  int T27 = touchRead(touchPin27);
+  if (T27 < threshold) calc = true;
+  delay(200);
 
   if (calc) {
     dbscan DB(epsilon, 5, EUCLIDIAN);
@@ -209,7 +215,6 @@ void loop() {
       std::vector<uint16_t> cluster = clusters[classe];
       for (uint16_t i : cluster) {
         std::vector<float> x = Dataset[i];
-        //       int classe = (int)x[2];
         uint32_t color[6] = {TFT_WHITE, TFT_GREEN, TFT_RED, TFT_PURPLE, TFT_YELLOW, TFT_CYAN};
         if (classe < 6) displayDot(x, color[classe]);
         else displayDot(x, color[5]);
