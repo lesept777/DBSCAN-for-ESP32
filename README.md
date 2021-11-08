@@ -24,7 +24,7 @@ A dataset is a vector of vectors of floats
 ```
 std::vector<std::vector<float>> dataset
 ```
-See the example on how to create a dataset. Basically, you need to declare the dataset as above and push all your vectors fo float data into the dataset. if `v` is a vector of data of dimension 3:
+See the example on how to create a dataset. Basically, you need to declare the dataset as above and push all your vectors of float data into the dataset. E.g. if `v` is a vector of data of dimension 3:
 ```
 std::vector<float> v;
 float myV[] = {3, 3, 3};
@@ -45,7 +45,21 @@ DB.init(dataset);
     std::vector<std::vector<uint16_t>> clusters;
     clusters = DB.init(Dataset);
 ```
-The method `displayStats` profvides usuful information about the clusters.
+The method `displayStats` provides usuful information about the clusters:
+> Created 3 clusters.
+> Cluster 0 : 70 points
+> 	Centroid: 0.003065 0.004174 2.999999 
+> 	Tightness = 0.105
+> Cluster 1 : 56 points
+> 	Centroid: 0.254542 0.028865 1.999999 
+> 	Tightness = 0.289
+> Cluster 2 : 60 points
+> 	Centroid: -0.715484 0.040681 1.000000 
+> 	Tightness = 0.322
+> 
+> Separation = 1.517
+> Davies-Bouldin index = 0.383
+> 14 noise points
 
 ## Data prediction
 To predict in which cluster a data is best located, use the `predict`method. Create the vector, send it to `predict`. The method returns the number of the best cluster or 65535 if your data is noise.
