@@ -14,7 +14,7 @@ The arguments are:
 * minimum number of points in a neighbourhood
 * type of distance chosen:
 	*  EUCLIDIAN,  // [Euclidian](https://en.wikipedia.org/wiki/Euclidean_space#Distance_and_length) distance
-	*  MINKOVSKI,  // [Minkowski](https://en.wikipedia.org/wiki/Minkowski_distance) distance (is Euclidian if param = 2)
+	*  MINKOVSKI,  // [Minkowski](https://en.wikipedia.org/wiki/Minkowski_distance) distance (is Euclidian if param = 2) _not working..._
 	*  MANHATTAN,  // [Manhattan](https://en.wikipedia.org/wiki/Taxicab_geometry) distance
 	*  CHEBYCHEV,  // [Chebychev](https://en.wikipedia.org/wiki/Chebyshev_distance) distance
 	*  CANBERRA    // [Canberra](https://en.wikipedia.org/wiki/Canberra_distance) distance
