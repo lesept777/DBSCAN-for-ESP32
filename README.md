@@ -13,11 +13,11 @@ The arguments are:
 * epsilon: size of a local neighbourhood
 * minimum number of points in a neighbourhood
 * type of distance chosen:
-	*  EUCLIDIAN,  // euclidian distance
-	*  MINKOVSKI,  // Minkowski distance (is Euclidian if param = 2)
-	*  MANHATTAN,  // Manhattan distance
-	*  CHEBYCHEV,  // Chebychev distance
-	*  CANBERRA    // Canberra distance
+	*  EUCLIDIAN,  // [Euclidian](https://en.wikipedia.org/wiki/Euclidean_space#Distance_and_length) distance
+	*  MINKOVSKI,  // [Minkowski](https://en.wikipedia.org/wiki/Minkowski_distance) distance (is Euclidian if param = 2)
+	*  MANHATTAN,  // [Manhattan](https://en.wikipedia.org/wiki/Taxicab_geometry) distance
+	*  CHEBYCHEV,  // [Chebychev](https://en.wikipedia.org/wiki/Chebyshev_distance) distance
+	*  CANBERRA    // [Canberra](https://en.wikipedia.org/wiki/Canberra_distance) distance
 
 ## Dataset creation
 A dataset is a vector of vectors of floats
