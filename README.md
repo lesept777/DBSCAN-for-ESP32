@@ -5,14 +5,19 @@ This library is designed to be used with the Arduino IDE.
 * no dependency
 
 ## DBSCAN instance creation
-First declare an instance of you DBSCAN:
+First declare an instance of your [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN):
 ```
 dbscan DB(.6, 4, EUCLIDIAN);
 ```
 The arguments are:
-* epsilon
+* epsilon: size of a local neighbourhood
 * minimum number of points in a neighbourhood
-* type of distance chosen
+* type of distance chosen:
+	*  EUCLIDIAN,  // euclidian distance
+	*  MINKOVSKI,  // Minkowski distance (is Euclidian if param = 2)
+	*  MANHATTAN,  // Manhattan distance
+	*  CHEBYCHEV,  // Chebychev distance
+	*  CANBERRA    // Canberra distance
 
 ## Dataset creation
 A dataset is a vector of vectors of floats
