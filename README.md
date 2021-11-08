@@ -51,4 +51,7 @@ v.assign (myV, myV + 3);
 uint16_t n = DB.predict(v);
 Serial.printf("[3,3,3] in cluster %d\n", n);
 ```
+
+## Examples
+Two examples are proposed, a `simple`one to show the basics, and a more complex one with graphics that you can use on a TTGO T-display device. This example groups 2D points into 3 clusters (one in a circle in the center of the screen, and 2 around 2 circle arcs). You can use the buttons to change the values of epsilon and the tolerance of the points around the arcs, and GPIO15 to change the number of points in the dataset.
   
