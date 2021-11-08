@@ -46,22 +46,20 @@ DB.init(dataset);
     clusters = DB.init(Dataset);
 ```
 The method `displayStats` provides usuful information about the clusters:
-> Created 3 clusters.
-
-> Cluster 0 : 70 points
->
+> Created 3 clusters.<br>
+> Cluster 0 : 70 points<br>
 > 	Centroid: 0.003065 0.004174 2.999999 <br>
-> 	Tightness = 0.105
-> Cluster 1 : 56 points
-> 	Centroid: 0.254542 0.028865 1.999999 
-> 	Tightness = 0.289
-> Cluster 2 : 60 points
-> 	Centroid: -0.715484 0.040681 1.000000 
-> 	Tightness = 0.322
-> 
-> Separation = 1.517
-> Davies-Bouldin index = 0.383
-> 14 noise points
+> 	Tightness = 0.105<br>
+> Cluster 1 : 56 points<br>
+> 	Centroid: 0.254542 0.028865 1.999999 <br>
+> 	Tightness = 0.289<br>
+> Cluster 2 : 60 points<br>
+> 	Centroid: -0.715484 0.040681 1.000000 <br>
+> 	Tightness = 0.322<br>
+> <br>
+> Separation = 1.517<br>
+> Davies-Bouldin index = 0.383<br>
+> 14 noise points<br>
 
 ## Data prediction
 To predict in which cluster a data is best located, use the `predict`method. Create the vector, send it to `predict`. The method returns the number of the best cluster or 65535 if your data is noise.
