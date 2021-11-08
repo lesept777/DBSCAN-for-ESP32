@@ -45,7 +45,7 @@ DB.init(dataset);
     std::vector<std::vector<uint16_t>> clusters;
     clusters = DB.init(Dataset);
 ```
-The method `displayStats` provides usuful information about the clusters:
+The method `displayStats` provides usuful [information](https://penseeartificielle.fr/clustering-avec-lalgorithme-dbscan/) about the clusters:
 > Created 3 clusters.<br>
 > Cluster 0 : 70 points<br>
 > 	&nbsp;&nbsp;&nbsp;&nbsp;Centroid: 0.003065 0.004174 2.999999 <br>
