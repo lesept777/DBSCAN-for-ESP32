@@ -47,7 +47,9 @@ DB.init(dataset);
 ```
 The method `displayStats` provides usuful information about the clusters:
 > Created 3 clusters.
+
 > Cluster 0 : 70 points
+>
 > 	Centroid: 0.003065 0.004174 2.999999 
 > 	Tightness = 0.105
 > Cluster 1 : 56 points
