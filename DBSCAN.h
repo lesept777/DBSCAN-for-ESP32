@@ -51,8 +51,9 @@ class dbscan
   public:
     dbscan (float, int, uint8_t, float = 1.0f);
     ~dbscan ();
-    void init (std::vector<std::vector<float>> const &);
+    std::vector<std::vector<uint16_t>> init (std::vector<std::vector<float>> const &);
     void displayStats ();
+    uint16_t predict (std::vector<float> const &);
   };
 
 #endif

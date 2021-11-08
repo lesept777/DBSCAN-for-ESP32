@@ -19,7 +19,7 @@ dbscan::~dbscan() {
 }
 
 /* Process the dataset */
-void dbscan::init(std::vector<std::vector<float>> const &dataset)
+std::vector<std::vector<uint16_t>> dbscan::init(std::vector<std::vector<float>> const &dataset)
 {
 	_nData = dataset.size();
 	for (uint16_t i=0; i < _nData; ++i) {
@@ -36,6 +36,7 @@ void dbscan::init(std::vector<std::vector<float>> const &dataset)
 	Serial.printf ("Average distance : %f\n", averageDistance);
 
 // Process dataset
+	std::vector<uint16_t> noise;
 	for (uint16_t i = 0; i < _nData; ++i) {
 		if (_type[i] == NOT_VISITED) {
 			_type[i] = VISITED;
@@ -44,6 +45,7 @@ void dbscan::init(std::vector<std::vector<float>> const &dataset)
 			// If the point has too few neighbours : set to noise
 			if (neighbours.size() < _minPts) {
 				_type[i] = NOISE;
+				noise.push_back(i);
 				++_nNoise;
 				// Serial.println ("Noise!");
 			} else {
@@ -59,7 +61,10 @@ void dbscan::init(std::vector<std::vector<float>> const &dataset)
 			}
 		}
 	}
+	// Noise cluster is inserted at position 0 (first cluster) even if empty
+	 _clusters.insert(_clusters.begin(), noise);
    displayStats ();
+   return _clusters;
 }
 
 void dbscan::displayStats ()
@@ -70,11 +75,11 @@ void dbscan::displayStats ()
    std::vector<float> tightness;
 	Serial.printf ("Created %d clusters.\n", _nClusters);
 	for (uint16_t i = 0; i < _nClusters; ++i) {
-		Serial.printf ("Cluster %d : %d points\n",i, _clusters[i].size() - 1);
+		Serial.printf ("Cluster %d : %d points\n",i, _clusters[i + 1].size() - 1);
 
 // Centroid
       std::vector<float> c(nFeatures, 0);
-      c = computeCentroid(nFeatures, _clusters[i]);
+      c = computeCentroid(nFeatures, _clusters[i + 1]);
 		Serial.print("\tCentroid: ");
 		for (uint16_t k = 0; k < nFeatures; ++k)
 			Serial.printf("%f ",c[k]);
@@ -82,7 +87,7 @@ void dbscan::displayStats ()
       centroid.push_back(c);
 
 // Tightness (mean distance to centroid)
-      float t = computeTightness(nFeatures, _clusters[i], c);
+      float t = computeTightness(nFeatures, _clusters[i + 1], c);
 		Serial.printf ("\tTightness = %.3f\n", t);
       tightness.push_back(t);
 	}
@@ -151,7 +156,7 @@ void dbscan::enlargeCluster (std::vector<uint16_t> neighbours, std::vector<uint1
 		}
 		// add current point to current cluster is not already part of a cluster
 		bool isInCluster = false;
-		for (uint16_t j = 0; j < _nClusters - 1; ++j)
+		for (uint16_t j = 1; j < _nClusters; ++j)
 			for (uint16_t k = 0; k < _clusters[j].size(); ++k)
 				if (_clusters[j][k] == index) {
 					isInCluster = true;
@@ -218,4 +223,18 @@ int dbscan::countNeighbours(std::vector<float> const &vector)
 bool dbscan::isNeighbour(std::vector<float> const &vector1, std::vector<float> const &vector2)
 {
 	return (distance(vector1, vector2) <= _epsilon);
+}
+
+uint16_t dbscan::predict (std::vector<float> const &vector)
+{
+	uint16_t number = 65535;
+	for (uint16_t i = 0; i < _nData; ++i)
+		if (distance(vector, _dataset[i]) < _epsilon) {
+			for (uint16_t j = 0; j < _nClusters; ++j)
+				for (uint16_t k = 0; k < _clusters[j + 1].size(); ++k)
+					if (_clusters[j + 1][k] == i) {
+						return j;
+					}
+		}
+	return number;
 }
