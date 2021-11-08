@@ -49,13 +49,13 @@ The method `displayStats` provides usuful information about the clusters:
 > Created 3 clusters.<br>
 > Cluster 0 : 70 points<br>
 > 	&nbsp;&nbsp;&nbsp;&nbsp;Centroid: 0.003065 0.004174 2.999999 <br>
-> 	Tightness = 0.105<br>
+> 	&nbsp;&nbsp;&nbsp;&nbsp;Tightness = 0.105<br>
 > Cluster 1 : 56 points<br>
-> 	Centroid: 0.254542 0.028865 1.999999 <br>
-> 	Tightness = 0.289<br>
+> 	&nbsp;&nbsp;&nbsp;&nbsp;Centroid: 0.254542 0.028865 1.999999 <br>
+> 	&nbsp;&nbsp;&nbsp;&nbsp;Tightness = 0.289<br>
 > Cluster 2 : 60 points<br>
-> 	Centroid: -0.715484 0.040681 1.000000 <br>
-> 	Tightness = 0.322<br>
+> 	&nbsp;&nbsp;&nbsp;&nbsp;Centroid: -0.715484 0.040681 1.000000 <br>
+> 	&nbsp;&nbsp;&nbsp;&nbsp;Tightness = 0.322<br>
 > <br>
 > Separation = 1.517<br>
 > Davies-Bouldin index = 0.383<br>
